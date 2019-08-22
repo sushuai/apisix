@@ -44,18 +44,23 @@ For more detailed information, see the [White Paper](https://www.iresty.com/down
 - **[Limit-concurrency](doc/plugins/limit-conn.md)**
 - **OpenTracing: [Zipkin](doc/plugins/zipkin.md)**
 - **Monitoring and Metrics**: [Prometheus](doc/plugins/prometheus.md)
+- **[gRPC transcoding](doc/plugins/grpc-transcoding.md)**：Supports protocol transcoding so that clients can access your gRPC API by using HTTP/JSON.
 - **Custom plugins**: Allows hooking of common phases, such as `rewrite`, `access`, `header filer`, `body filter` and `log`, also allows to hook the `balancer` stage.
 - **Dashboard**: Built-in dashboard to control APISIX.
+- **Version Control**: Supports rollbacks of operations.
 - **CLI**: start\stop\reload APISIX through the command line.
 - **REST API**
 - **Clustering**
 - **Scalability**
 - **High performance**: The single-core QPS reaches 24k with an average delay of less than 0.6 milliseconds.
 - **Anti-ReDoS(Regular expression Denial of Service)**
+- **IP whitelist/blacklist**
 - **OAuth2.0**: TODO.
 - **ACL**: TODO.
 - **Bot detection**: TODO.
-- **IP blacklist**: TODO.
+
+## Online Demo Dashboard
+We provide an online dashboard [demo version](http://apisix.iresty.com)， make it easier for you to understand APISIX.
 
 ## Install
 

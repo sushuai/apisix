@@ -32,6 +32,17 @@ else
 	luarocks install --lua-dir=/usr/local/openresty/luajit rockspec/apisix-dev-1.0-0.rockspec --tree=deps --only-deps --local
 endif
 
+### dev_r3:        Create a development ENV of r3
+.PHONY: dev_r3
+dev_r3:
+ifeq ($(UNAME),Darwin)
+	luarocks install --lua-dir=$(LUA_JIT_DIR) lua-resty-libr3 --tree=deps --local
+else ifneq ($(LUAROCKS_VER),'luarocks 3.')
+	luarocks install lua-resty-libr3 --tree=deps --local
+else
+	luarocks install --lua-dir=/usr/local/openresty/luajit lua-resty-libr3 --tree=deps --local
+endif
+
 
 ### check:        Check Lua source code
 .PHONY: check
@@ -41,7 +52,8 @@ check:
 		lua/apisix/admin/*.lua \
 		lua/apisix/core/*.lua \
 		lua/apisix/http/*.lua \
-		lua/apisix/plugins/*.lua > \
+		lua/apisix/plugins/*.lua \
+		lua/apisix/plugins/grpc-proxy/*.lua > \
 		/tmp/check.log 2>&1 || (cat /tmp/check.log && exit 1)
 
 
